@@ -12,7 +12,7 @@ public class prblm7 {
             nums[i] = sc.nextInt();
         }
         calculateSum(nums);
-        
+        sc.close();
     }
     private static void calculateSum(int[] nums){
         int sum = 0;
