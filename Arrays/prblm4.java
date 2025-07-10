@@ -12,6 +12,7 @@ public class prblm4 {
             nums[i] = sc.nextInt();
         }
         reverseArray(nums);
+        sc.close();
     }   
     public static void reverseArray(int[] nums){
         int n , left , right;
