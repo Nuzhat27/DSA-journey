@@ -1,8 +1,8 @@
-package Practice;
+package Arrays;
 import java.util.Scanner;
 
 //Second Smallest and Second Largest element in an array
-public class problem3 {
+public class prblm3 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the size of array:-");

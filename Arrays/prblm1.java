@@ -1,7 +1,7 @@
-package Practice;
+package Arrays;
 //Find the smallest number in an array
 import java.util.*;
-public class problem1 {
+public class prblm1{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the size of array:-");

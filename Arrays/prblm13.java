@@ -1,7 +1,7 @@
-package Practice;
-//Find the largest number in the array
+package Arrays;
+//Find all repeating elements in an array
 import java.util.*;
-public class problem2 {
+public class prblm13 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the size of array:-");
@@ -11,16 +11,20 @@ public class problem2 {
         for(int i = 0 ; i < n ; i++){
             nums[i] = sc.nextInt();
         }
-        findLargest(nums);
+        Arrays.sort(nums);
+        repeating(nums);
     }
-    public static void findLargest(int[] nums){
-        int n , i , largestNum = Integer.MIN_VALUE;
+    private static void repeating(int[] nums){
+        int n , i ;
         n = nums.length;
+        Map<Integer , Integer> result = new HashMap<>();
         for(i = 0 ; i < n ; i ++){
-            if(nums[i] > largestNum){
-                largestNum = nums[i];
+            result.put(nums[i] , result.getOrDefault(nums[i] , 0)+1);
+        }
+        for(var num : result.entrySet()){
+            if(num.getValue() > 1){
+                System.out.print(num.getKey() + " ");
             }
         }
-        System.out.println("Largest number in the array is " + largestNum);
     }
 }

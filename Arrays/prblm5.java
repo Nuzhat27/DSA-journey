@@ -1,4 +1,4 @@
-package Practice;
+package Arrays;
 import java.util.*;
 //Count frequency of each element in an array
 class prblm5{
