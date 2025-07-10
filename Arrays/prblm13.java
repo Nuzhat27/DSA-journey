@@ -11,8 +11,8 @@ public class prblm13 {
         for(int i = 0 ; i < n ; i++){
             nums[i] = sc.nextInt();
         }
-        Arrays.sort(nums);
         repeating(nums);
+        sc.close();
     }
     private static void repeating(int[] nums){
         int n , i ;
