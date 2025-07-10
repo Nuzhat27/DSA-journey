@@ -27,13 +27,12 @@ public class prblm12 {
                 int index = sc.nextInt();
                 addAtIndex(nums , num , index);
                 break;
-            default:return;
+            default: System.out.println("You have entered the wrong input.");
+            break;
         }     
         sc.close();
     }
     private static void addBegin(int[] nums , int num){
-        int i , n ;
-        n = nums.length;
         List<Integer> result = new ArrayList<>();
         result.add(num);
         System.out.print(num + " ");
@@ -43,8 +42,6 @@ public class prblm12 {
         }
     }
     private static void addLast(int[] nums , int num){
-        int i , n ;
-        n = nums.length;
         List<Integer> result = new ArrayList<>();
         for(int number : nums){
             result.add(number);
