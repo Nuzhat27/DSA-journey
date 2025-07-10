@@ -12,6 +12,7 @@ public class prblm1{
             nums[i] = sc.nextInt();
         }
         findSmallest(nums);
+        sc.close();
     }
     public static void findSmallest(int[] nums){
         int n , i , smallestNum = Integer.MAX_VALUE;
