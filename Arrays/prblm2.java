@@ -12,6 +12,7 @@ public class prblm2 {
             nums[i] = sc.nextInt();
         }
         findLargest(nums);
+        sc.close();
     }
     public static void findLargest(int[] nums){
         int n , i , largestNum = Integer.MIN_VALUE;
