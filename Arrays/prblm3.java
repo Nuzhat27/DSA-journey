@@ -14,6 +14,7 @@ public class prblm3 {
         }
         findSecondSmallest(nums);
         findSecondLargest(nums);
+        sc.close();
     }
     public static void findSecondSmallest(int[] nums){
         int i , n , smallest = Integer.MAX_VALUE , secondSmallest = Integer.MAX_VALUE;
