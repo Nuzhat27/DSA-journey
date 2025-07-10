@@ -14,9 +14,10 @@ public class prblm8 {
         System.out.println("Enter the value of k :-");
         int k = sc.nextInt();
         rotateByK(nums , k);
+        sc.close();
     }
     private static void rotateByK(int[] nums , int k){
-        int i , n , count = 0 ;
+        int n ;
         n = nums.length;
         if(k>n){
             k = k % n ;
