@@ -1,5 +1,5 @@
 package Arrays;
-//Find all Symmetric Pairs in the array of pairs
+//Search an element in an array
 import java.util.*;
 
 public class prblm15 {
@@ -7,26 +7,27 @@ public class prblm15 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the size of array:-");
         int n = sc.nextInt();
-        int[][] nums = new int[n][2];
-        System.out.println("Enter the pairs of the array:-");
+        int[] nums = new int[n];
+        System.out.println("Enter the element of the array:-");
         for(int i = 0 ; i < n ; i++){
-                nums[i][0] = sc.nextInt();
-                nums[i][1] = sc.nextInt();
+                nums[i] = sc.nextInt();
         }
-        symmetricPair(nums);
+        System.out.println("Enter the element to be searched:-");
+        int num = sc.nextInt();
+        searchElement(nums , num);
         sc.close();
     }
-    private static void symmetricPair(int[][] nums){
-        Map<Integer , Integer> pairs = new HashMap<>();
-        for(int[] pair : nums){
-            int a = pair[0];
-            int b = pair[1];
-            if(pairs.containsKey(b) && pairs.get(b) == a){
-                System.out.println("(" + a + ", " + b + ")");
+    private static void searchElement(int[] nums , int ele){
+        boolean found = false;
+        for(int i = 0 ; i < nums.length ; i ++){
+            if(nums[i] == ele){
+                found = true;
             }
-            else{
-                pairs.put(a,b);
-            }
+        }
+        if(found == true){
+            System.out.println("Element exist");
+        }else{
+            System.out.println("Element doesnot exist");
         }
     }
 }
