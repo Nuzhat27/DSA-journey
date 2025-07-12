@@ -1,5 +1,5 @@
 package Arrays;
-//121. Best Time to Buy and Sell Stock
+//LC121. Best Time to Buy and Sell Stock
 public class prblm16 {
     public int maxProfit(int[] prices) {
         /*int i , j ;
