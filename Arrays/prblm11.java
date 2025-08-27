@@ -12,6 +12,7 @@ public class prblm11 {
             nums[i] = sc.nextInt();
         }
         removeDuplicates(nums);
+        sc.close();
     }
     private static void removeDuplicates(int[] nums){
         int i , n ;
