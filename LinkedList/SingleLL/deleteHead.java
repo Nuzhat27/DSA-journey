@@ -1,4 +1,4 @@
-package LinkedList;
+package LinkedList.SingleLL;
 //Deleting the head of single linkedlist
 import java.util.*;
 class deleteHead{
