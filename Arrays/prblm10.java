@@ -13,6 +13,7 @@ public class prblm10 {
         }
         Arrays.sort(nums);
         removeDuplicates(nums);
+        sc.close();
     }
     private static void removeDuplicates(int[] nums){
         //Brute force using HashSet
