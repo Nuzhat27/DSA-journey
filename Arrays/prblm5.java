@@ -12,6 +12,7 @@ class prblm5{
             nums[i] = sc.nextInt();
         }
         findCount(nums);
+        sc.close();
     }
     private static void findCount(int[] nums){
         Map<Integer , Integer> count = new HashMap<>(); 
