@@ -1,4 +1,4 @@
-package LinkedList.singleLL;
+package LinkedList.SingleLL;
 //Delete the tail of single linkedlist
 class deleteTail{
 	public ListNode deleteTailSLL(ListNode head){
