@@ -14,7 +14,7 @@ class removeNth{
 			slow = slow.next;
 			fast = fast.next;
 		}
-		small.next = fast;
+		slow.next = slow.next.next;
 		return head;
 	}
 }
