@@ -2,7 +2,7 @@ package LinkedList;
 //Check if linkedlist is plaindrome or not
 class isPalindrome{
 	public boolean isLLPalindrome(ListNode head){
-		if(head == null || head.next == null)return true;
+		if(head.next == null)return true;
 		ListNode fast = head;
 		ListNode slow = head;
 		while(fast != null && fast.next != null){
