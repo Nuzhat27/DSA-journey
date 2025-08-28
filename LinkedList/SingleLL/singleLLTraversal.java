@@ -1,4 +1,5 @@
 package LinkedList.SingleLL;
+//Traversal of single linkedlist
 class singleLLTraversal{
 	public List<Integer> traverseLL(ListNode head){
 		ListNode current = head ;
