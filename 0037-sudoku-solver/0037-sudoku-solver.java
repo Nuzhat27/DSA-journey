@@ -23,15 +23,12 @@ class Solution {
         for(int i = 0 ; i < 9 ; i ++){
             if(board[i][col] == d)return false;
             if(board[row][i] == d) return false;
-        }
-        int start_i = (row/3) * 3;
-        int start_j = (col/3) * 3;
-        for(int k = 0 ; k < 3 ; k ++){
-            for(int l = 0 ; l < 3 ; l ++){
-                    if(board[start_i + k][start_j + l] == d)return false;
-            }
+            int start_i = (row/3) * 3;
+            int start_j = (col/3) * 3;
+            if(board[start_i + i/3][start_j + i%3] == d)return false;
         }
         return true;
+
     }
 
     public void solveSudoku(char[][] board) {
