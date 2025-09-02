@@ -24,7 +24,8 @@ class ListNode {
 
  class LoopLength {
      public int findLengthOfLoop(ListNode head) {
-        ListNode temp = head;
+        /*Brute force
+		ListNode temp = head;
         int timer = 0;
         HashMap<ListNode,Integer> list = new HashMap<>();
 
@@ -38,5 +39,31 @@ class ListNode {
             timer++;
         }
         return 0;
+		*/
+		ListNode temp = head;
+		int length = 0;
+		temp = head;
+		ListNode slow = head;
+		ListNode fast = head;
+		while(fast != null && fast.next != null){
+			slow = slow.next;
+			fast = fast.next.next;
+			
+			if(slow == fast){
+				length = findLength(slow , fast);
+				return length;
+				}
+			}
+		}
+		return length;
      }
+	 private int findLength(ListNode slow , ListNode fast){
+		 int count = 1;
+		 fast = fast.next;
+		 while(slow != fast){
+			 count++;
+			 fast = fast.next;
+		 }
+		 return count;
+	 }
  }
