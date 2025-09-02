@@ -1,28 +1,25 @@
 class Solution {
     public int numberOfPairs(int[][] points) {
-        // Sort by x ascending, y descending
-        Arrays.sort(points, (a, b) -> {
-            if (a[0] == b[0]) return Integer.compare(b[1], a[1]);
-            return Integer.compare(a[0], b[0]);
+        int n = points.length;
+        int count = 0;
+        Arrays.sort(points , (a,b) -> {
+            if(a[0] == b[0])return Integer.compare(b[1] , a[1]);
+            else return Integer.compare(a[0] , b[0]);
         });
 
-        int n = points.length;
-        int result = 0;
-
-        for (int i = 0; i < n; i++) {
-            int top = points[i][1];
+        for(int i = 0 ; i < n  ; i ++){
+            int top = points[i][1];//y-coordinate of point A
             int bot = Integer.MIN_VALUE;
 
-            for (int j = i + 1; j < n; j++) {
+            for(int j = i + 1 ; j < n ; j ++){
                 int y = points[j][1];
-                if (bot < y && y <= top) {
-                    result++;
+
+                if(y <= top && bot < y){
+                    count ++;
                     bot = y;
-                    if (bot == top) break;
                 }
             }
         }
-
-        return result;
+        return count;
     }
 }
