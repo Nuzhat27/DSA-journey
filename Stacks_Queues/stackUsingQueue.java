@@ -1,4 +1,4 @@
-package Linkedlist;
+package Stacks_Queues;
 //Implement stack using queue
 class stackUsingQueue{
 	Queue<Integer> q;
