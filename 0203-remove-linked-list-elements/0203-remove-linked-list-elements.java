@@ -25,7 +25,7 @@ class Solution {
                     }
                 }
             }
-            back = temp;
+            if(temp.val != val)back = temp; 
             temp = temp.next;
         }
         return head;
