@@ -1,16 +1,52 @@
 class Solution {
-    public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
-        int size = s.length();
-        for(char ch : s.toCharArray()){
-            if(ch == '{' || ch == '[' || ch == '(')stack.push(ch);
-            else{
-                if(stack.isEmpty())return false;
-                char st = stack.pop();
-                if(ch == '}' && st != '{' || ch == ']' && st != '[' || ch == ')' &&
-                  st != '(')return false;
+    private boolean isMatched(char open, char close) {
+       
+        // Match
+        if((open == '(' && close == ')') ||
+           (open == '[' && close == ']') ||
+           (open == '{' && close == '}')
+        )
+            return true;
+           
+        // Mismatch
+        return false;
+    }
+
+    /* Function to check if the 
+    string is valid */
+    public boolean isValid(String str) {
+       
+        // Initialize a stack
+        Stack<Character> st = new Stack<>();
+       
+        // Start iterating on the string
+        for(int i=0; i < str.length(); i++) {
+           
+            // If an opening bracket is found
+            if(str.charAt(i) == '(' || str.charAt(i) == '[' || 
+               str.charAt(i) == '{') {
+               
+                // Push on top of stack
+                st.push(str.charAt(i));
+            }
+           
+            // Else if a closing bracket is found
+            else {
+                // Return false if stack is empty
+                if(st.isEmpty()) return false;
+               
+                // Get the top element from stack
+                char ch = st.peek();
+                st.pop();
+               
+                /* If the opening and closing brackets 
+                are not matched, return false */
+                if(!isMatched(ch, str.charAt(i))) return false;
             }
         }
-        return stack.isEmpty();
+       
+        /* If stack is empty, the 
+        string is valid, else invalid */
+        return st.isEmpty();
     }
 }
