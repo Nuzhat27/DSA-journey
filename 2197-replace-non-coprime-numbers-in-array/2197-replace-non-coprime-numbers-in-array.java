@@ -1,21 +1,23 @@
 class Solution {
     public List<Integer> replaceNonCoprimes(int[] nums) {
-        Stack<Integer> st = new Stack<>();
+        int n = nums.length;
+        int top = -1;
+        int[] stack = new int[n];
         for(int num : nums){
-            while(!st.isEmpty()){
-                int x = getGCD(st.peek() , num);
+            while(top != -1){
+                int x = getGCD(stack[top] , num);
                 if(x == 1)break;
                 else{
-                    int n = st.pop();
-                    long lcm = ((long)n * num) / getGCD(n , num);
+                    int peek = stack[top --];
+                    long lcm = ((long)peek * num) / getGCD(peek , num);
                     num = (int)lcm ;
                 }
             }
-            st.push(num);
+            stack[++top] = num;
         }
         List<Integer> result = new ArrayList<>();
-        while(!st.isEmpty()){
-            result.add(st.pop());
+        while(top != -1){
+            result.add(stack[top --]);
         }
         Collections.reverse(result);
         return result;
