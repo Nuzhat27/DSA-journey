@@ -2,10 +2,14 @@ class Solution {
     public List<Integer> replaceNonCoprimes(int[] nums) {
         Stack<Integer> st = new Stack<>();
         for(int num : nums){
-            while(!st.isEmpty() && getGCD(st.peek() , num) > 1){
-                int n = st.pop();
-                long lcm = ((long)n * num) / getGCD(n , num);
-                num = (int)lcm ;
+            while(!st.isEmpty()){
+                int x = getGCD(st.peek() , num);
+                if(x == 1)break;
+                else{
+                    int n = st.pop();
+                    long lcm = ((long)n * num) / getGCD(n , num);
+                    num = (int)lcm ;
+                }
             }
             st.push(num);
         }
@@ -16,14 +20,8 @@ class Solution {
         Collections.reverse(result);
         return result;
     }
-    private int getGCD(int n1 , int n2){
-        while(n1 != 0 && n2 != 0){
-            if(n1 > n2){
-                n1 = n1 % n2;
-            }
-            else n2 = n2 % n1;
-        }
-        if(n2 == 0)return n1;
-        return n2;
+
+    private int getGCD(int n1, int n2) {
+        return n2 == 0 ? n1 : getGCD(n2, n1 % n2);
     }
 }
