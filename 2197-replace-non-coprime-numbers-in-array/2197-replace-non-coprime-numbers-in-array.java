@@ -1,0 +1,29 @@
+class Solution {
+    public List<Integer> replaceNonCoprimes(int[] nums) {
+        Stack<Integer> st = new Stack<>();
+        for(int num : nums){
+            while(!st.isEmpty() && getGCD(st.peek() , num) > 1){
+                int n = st.pop();
+                long lcm = ((long)n * num) / getGCD(n , num);
+                num = (int)lcm ;
+            }
+            st.push(num);
+        }
+        List<Integer> result = new ArrayList<>();
+        while(!st.isEmpty()){
+            result.add(st.pop());
+        }
+        Collections.reverse(result);
+        return result;
+    }
+    private int getGCD(int n1 , int n2){
+        while(n1 != 0 && n2 != 0){
+            if(n1 > n2){
+                n1 = n1 % n2;
+            }
+            else n2 = n2 % n1;
+        }
+        if(n2 == 0)return n1;
+        return n2;
+    }
+}
