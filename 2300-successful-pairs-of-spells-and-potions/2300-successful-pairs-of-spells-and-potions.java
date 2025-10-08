@@ -13,7 +13,7 @@ class Solution {
         int low = 0 , high = potions.length - 1 , mid , ceil = -1;
         while(low <= high){
             mid = (low + high) / 2;
-            ans = (long)(potions[mid] * spell);
+            ans = (long)potions[mid] * spell;
             if(ans >= success){
                 ceil = mid;
                 high = mid - 1;
