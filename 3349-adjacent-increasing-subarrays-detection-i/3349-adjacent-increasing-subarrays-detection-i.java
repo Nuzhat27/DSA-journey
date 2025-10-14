@@ -10,7 +10,7 @@ class Solution {
                 prvcnt = cnt;
                 cnt = 1;
             }
-            ans = Math.max(ans , Math.max(prvcnt , cnt));
+            ans = Math.max(ans , Math.min(prvcnt , cnt));
             ans = Math.max(ans ,cnt/2);
         }
         return ans >= k ;
