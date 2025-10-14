@@ -1,24 +1,18 @@
 class Solution {
     public boolean hasIncreasingSubarrays(List<Integer> nums, int k) {
         int n = nums.size();
-        for(int i = 0 ; i <= n - 2*k ; i ++){
-            int j = i + k;
-            if(isStrictlyIncreasingSubarray(i , j ,k , nums)){
-                return true;
+        int cnt = 1 , prvcnt = 0, ans = 0;
+        for(int i = 1 ; i < n ; i ++){
+            if(nums.get(i) > nums.get(i - 1)){
+                cnt += 1;
             }
+            else{
+                prvcnt = cnt;
+                cnt = 1;
+            }
+            ans = Math.max(ans , Math.max(prvcnt , cnt));
+            ans = Math.max(ans ,cnt/2);
         }
-        return false;
-    }
-    private boolean isStrictlyIncreasingSubarray(int i1 , int i2 ,int k, List<Integer> nums){
-        if(i1 + k != i2)return false;
-        int end1 = i1 + k - 1;
-        for(int i = i1 ; i < end1 ; i ++){
-            if(nums.get(i) >= nums.get(i + 1))return false;
-        }
-        int end2= i2 + k - 1;
-        for(int i = i2 ; i < end2 ; i ++){
-            if(nums.get(i) >= nums.get(i + 1))return false;
-        }
-        return true;
+        return ans >= k ;
     }
 }
