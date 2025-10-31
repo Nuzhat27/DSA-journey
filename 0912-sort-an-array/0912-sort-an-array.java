@@ -12,30 +12,17 @@ class Solution {
         mergeSort(nums , q + 1 , r);
         merge(nums , p , q , r);
     }
-    private void merge(int[] nums , int p , int q , int r){
-        List<Integer> temp = new ArrayList<>();
-        int left = p ;
-        int right = q + 1;
-        while(left <= q && right <= r){
-            if(nums[left] <= nums[right]){
-                temp.add(nums[left]);
-                left += 1; 
-            }
-            else{
-                temp.add(nums[right]);
-                right += 1;
-            }
+    private void merge(int[] nums , int left , int mid , int right){
+        int[] temp = new int[right - left + 1];
+        int i = left, j = mid + 1, k = left;
+
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j]) temp[k++] = nums[i++];
+            else temp[k++] = nums[j++];
         }
-        while(left <= q){
-            temp.add(nums[left]);
-            left += 1;
-        }
-        while(right <= r){
-            temp.add(nums[right]);
-            right += 1;
-        }
-        for(int i = p ; i <= r ; i ++){
-            nums[i] = temp.get(i - p);
-        }
+
+        while (i <= mid) temp[k++] = nums[i++];
+        while (j <= right) temp[k++] = nums[j++];
+        
     }
 }
