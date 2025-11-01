@@ -11,21 +11,21 @@
 class Solution {
     public ListNode modifiedList(int[] nums, ListNode head) {
         if(head == null) return null;
-        Set<Integer> num = new HashSet<>();
+        Set<Integer> toRemove = new HashSet<>();
         for(int n : nums){
-            num.add(n);
+            toRemove.add(n);
         }
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode back = dummy;
-        ListNode curr = head;
-        while(curr != null){
-            if(num.contains(curr.val)){
-                back.next = curr.next;
+        ListNode curr = dummy;
+        while (curr.next != null) {
+            if (toRemove.contains(curr.next.val)) {
+                curr.next = curr.next.next; // Skip the node
+            } else {
+                curr = curr.next; // Move forward
             }
-            else back = curr;
-            curr = curr.next;
         }
+
         return dummy.next;
     }
 }
