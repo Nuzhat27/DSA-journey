@@ -1,18 +1,10 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        int n = nums.length;
-        Map<Integer , Integer> mpp = new HashMap<>();
+        int res = -1 , count = 0;
         for(int num : nums){
-            mpp.put(num , mpp.getOrDefault(num , 0) + 1);
+            if(count == 0)res = num;
+            count += (res == num) ? 1 : -1 ;
         }
-        int freq = 0 , ans = -1 ;
-        for(var entry : mpp.entrySet()){
-            int val = entry.getValue();
-            if(val > freq){
-                freq = val;
-                ans = entry.getKey();
-            }
-        }
-        return ans;
+        return res;
     }
 }
