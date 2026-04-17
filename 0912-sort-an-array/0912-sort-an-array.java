@@ -17,7 +17,7 @@ class Solution {
         int left = low;
         int right = mid + 1;
         while(left <= mid && right <= high){
-            if(nums[left] <= nums[mid]){
+            if(nums[left] <= nums[right]){
                 ans.add(nums[left]);
                 left ++;
             }
@@ -34,8 +34,8 @@ class Solution {
             ans.add(nums[right]);
             right += 1;
         }
-        for(int i = low ; i < high ; i ++){
-            nums[low] = ans.get(i - low);
+        for(int i = low ; i <= high ; i ++){
+            nums[i] = ans.get(i - low);
         }
         
     }
