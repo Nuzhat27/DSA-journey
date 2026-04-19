@@ -2,8 +2,8 @@ class Solution {
     public int maxDistance(int[] nums1, int[] nums2) {
         int n1 = nums1.length , n2 = nums2.length;
         int dis = 0;
-        int i = 0 , j ;
-        for(i = 0 ; i < n1 ; i ++){
+        int i = 0 , j = 0;
+        /*for(i = 0 ; i < n1 ; i ++){
             int low = i , high = n2 - 1;
             int index = 0;
             while(low <=  high){
@@ -18,6 +18,16 @@ class Solution {
             }
             dis = Math.max(dis , index - i);
 
+        }
+        */
+        while(i < n1 && j < n2){
+            if(nums1[i] <= nums2[j]){
+                dis = Math.max(dis , (j - i));
+                j ++;
+            }
+            else{
+                i ++;
+            }
         }
         return dis;
     }
