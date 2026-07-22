@@ -20,6 +20,9 @@ class Solution {
                     return true;
                 }
                 visited[i] = false;
+                if(currentSum == 0){
+                    return false;
+                }
             }
         }
         return false;
