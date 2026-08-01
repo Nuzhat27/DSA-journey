@@ -30,6 +30,6 @@ class Solution {
                 st.push(Integer.parseInt(s));
             }
         }
-        return st.pop();
+        return st.peek();
     }
 }
