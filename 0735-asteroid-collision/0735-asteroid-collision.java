@@ -18,19 +18,9 @@ class Solution {
             }
         }
         int[] ans = new int[st.size()];
-        for(int i = 0 ; i < ans.length  ; i ++){
+        for(int i = ans.length - 1 ; i >= 0  ; i --){
             ans[i] = st.pop();
         }
-        reverse(ans);
         return ans;
-    }
-    private void reverse(int[] arr){
-        int left = 0 , right = arr.length - 1;
-        while(left < right){
-            int temp = arr[left];
-            arr[left] = arr[right];
-            arr[right] = temp;
-            left ++;right--;
-        }
     }
 }
