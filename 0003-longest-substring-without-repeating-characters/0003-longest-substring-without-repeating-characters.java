@@ -1,6 +1,6 @@
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        int maxLength = 0,left = 0;
+        int maxLen = 0,left = 0;
         HashMap<Character, Integer> lastIndex = new HashMap<>();
         for(int right = 0 ; right < s.length() ; right ++){
             char c = s.charAt(right);
@@ -8,8 +8,8 @@ class Solution {
                 left = Math.max(left, lastIndex.get(c) + 1);
             }
             lastIndex.put(c, right);
-            maxLength = Math.max(maxLength , right - left + 1);
+            maxLen = Math.max(maxLen , right - left + 1);
         }
-        return maxLength;
+        return maxLen;
     }
 }
