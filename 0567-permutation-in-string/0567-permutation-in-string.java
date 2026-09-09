@@ -9,10 +9,7 @@ class Solution {
             s1Count[s1.charAt(i) - 'a']++;
             windowCount[s2.charAt(i) - 'a']++;
         }
-        int matches = 0;
-        for(int i = 0 ; i < 26 ; i ++){
-            if(s1Count[i] == windowCount[i]) matches ++;
-        }
+        
         if(Arrays.equals(s1Count, windowCount)) return true;
 
         for(int i = n ; i < m ; i ++){
