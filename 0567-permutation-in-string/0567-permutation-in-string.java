@@ -13,7 +13,7 @@ class Solution {
         for(int i = 0 ; i < 26 ; i ++){
             if(s1Count[i] == windowCount[i]) matches ++;
         }
-        if(matches == 26) return true;
+        if(Arrays.equals(s1Count, windowCount)) return true;
 
         for(int i = n ; i < m ; i ++){
             int rightChar = s2.charAt(i) - 'a';
@@ -21,15 +21,11 @@ class Solution {
 
             //add right character into the current window
             windowCount[rightChar] ++;
-            if(windowCount[rightChar] == s1Count[rightChar])matches++;
-            else if(windowCount[rightChar] == s1Count[rightChar] + 1)matches --;
             
             //remove left character into the current window
             windowCount[leftChar] --;
-            if(windowCount[leftChar] == s1Count[leftChar])matches++;
-            else if(windowCount[leftChar] == s1Count[leftChar] - 1)matches --;
 
-            if(matches == 26)return true;
+            if(Arrays.equals(s1Count, windowCount)) return true;
         }
         return false;
     }
