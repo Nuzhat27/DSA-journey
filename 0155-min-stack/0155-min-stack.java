@@ -14,28 +14,33 @@ class MinStack {
         if(value < min){
             st.push(2L * value - min);
             min = value;
-        }else{
+        }
+        else{
             st.push((long)value);
         }
     }
     
     public void pop() {
-        if(st.isEmpty())return;
-        long x = st.pop();
-        if(x < min){
-            min = 2 * min - x;
+        if(st.peek() < min){
+            min = 2 * min - st.peek();
+            st.pop();
+        }
+        else{
+            st.pop();
         }
     }
     
     public int top() {
         if(st.isEmpty())return -1;
         long x = st.peek();
-        if(x < min)return (int)min;
+        if(st.peek() < min){
+            return (int)min;
+        }
         else return (int)x;
     }
     
     public int getMin() {
-     return (int)min;   
+        return (int)min;
     }
 }
 
