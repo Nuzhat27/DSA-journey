@@ -18,9 +18,7 @@ class Solution {
         if(root == null && subRoot == null)return true;
         if(root == null || subRoot == null)return false;
         if(isIdentical(root, subRoot))return true;
-        else{
-            return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
-        }
+        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
     }
     private boolean isIdentical(TreeNode root, TreeNode subRoot){
         if(root == null && subRoot == null)return true;
