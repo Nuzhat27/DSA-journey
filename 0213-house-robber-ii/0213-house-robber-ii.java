@@ -7,14 +7,12 @@ class Solution {
         return Math.max(a, b);
     }
     private int robHouse(int[] nums, int start , int end){
-        int len = end - start + 1;
-        if(len == 1)return nums[start];
-        int[] dp = new int[len];
-        dp[0] = nums[start];
-        dp[1] = Math.max(nums[start] , nums[start + 1]);
-        for(int i = 2 ; i < len ; i ++){
-            dp[i] = Math.max(dp[i - 1] , dp[i - 2] + nums[start + i]);
+        int prev1 = 0, prev2 = 0;
+        for(int i = start; i <= end ; i ++){
+            int curr = Math.max(nums[i] + prev2, prev1);
+            prev2 = prev1;
+            prev1 = curr;
         }
-        return dp[len - 1];
+        return prev1;
     }
 }
